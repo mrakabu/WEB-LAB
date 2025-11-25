@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<link rel="stylesheet" href="style_P4.css">
+</head>
+<body>
+<h1>Registration Form</h1>
+<form>
+<table>
+ <tr>
+ <td><label for="first-name">First Name:</label></td>
+ <td><input type="text" id="first-name" name="first-name" required></td>
+ </tr>
+<tr>
+ <td><label for="last-name">Last Name:</label></td>
+ <td><input type="text" id="last-name" name="last-name" required></td>
+</tr>
+<tr>
+ <td><label for="email">Email:</label></td>
+ <td><input type="email" id="email" name="email" required></td>
+</tr>
+<tr>
+ <td><label for="password">Password:</label></td>
+ <td><input type="password" id="password" name="password" required></td>
+</tr>
+<tr>
+ <td><label for="gender">Gender:</label></td>
+ <td> <select id="gender" name="gender">
+ <option value="male">Male</option>
+ <option value="female">Female</option>
+<option value="other">Other</option>
+ </select>
+ </td>
+ </tr>
+<tr> 
+ <td><label for="birthdate">Date of Birth:</label></td>
+ <td><input type="date" id="birthdate" name="birthdate"></td>
+</tr>
+<tr>
+ <td><label for="subscribe">Subscribe:</label></td>
+ <td><input type="checkbox" id="subscribe" name="subscribe"></td>
+ </tr>
+<tr>
+ <td><label for="comments">Comments:</label></td>
+ <td><textarea id="comments" name="comments" rows="4" cols="50"></textarea></td>
+</tr>
+<tr>
+<td colspan="2"> <input type="submit" value="Submit"> <input type="reset" value="Reset"> </td>
+</tr>
+</table>
+</form>
+</body>
+</html>

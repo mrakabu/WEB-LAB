@@ -1,0 +1,16 @@
+p {
+font-size: 16px;
+}
+ul {
+font-size: 16px;
+}
+#animatedDiv {
+width: 100px;
+height: 100px;
+background-color: lightblue;
+margin-top: 20px;
+}
+/* Optional styling for the animated state */
+.animated {
+background-color: lightcoral;
+}

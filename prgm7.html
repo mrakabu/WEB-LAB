@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>JSON and Hash Operations</title>
+<style>
+body { 
+font-family: Arial, sans-serif;
+display: flex; 
+flex-direction: column;
+align-items: center;
+margin: 0;
+padding: 20px;
+background-color: #f5f5f5; 
+} 
+ .container { 
+width: 80%; 
+max-width: 800px; 
+background: #fff;
+border-radius: 8px; 
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+padding: 20px; 
+margin: 20px 0; 
+}
+textarea {
+width: 100%;
+height: 100px;
+margin-bottom: 10px; 
+padding: 10px; 
+border: 1px solid #ddd;
+border-radius: 4px;
+box-sizing: border-box;
+}
+button { 
+padding: 10px 20px;
+border: none;
+border-radius: 4px; 
+background-color: #4CAF50;
+color: white; 
+font-size: 16px;
+cursor: pointer;
+margin-bottom: 10px; 
+}
+button:hover {
+background-color: #45a049; 
+}
+.result { 
+margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>JSON and Hash Operations</h1>
+<h2>1. Convert JSON Text to JavaScript Object</h2>
+<textarea id="jsonInput" placeholder='Enter JSON here...'></textarea>
+<button onclick="convertJsonToObject()">Convert JSON to Object</button>
+<div id="jsonObjectResult" class="result"></div>
+<h2>2. Convert JSON Results into Date</h2>
+<textarea id="jsonDateInput" placeholder='Enter JSON with date string 
+here...'></textarea>
+<button onclick="convertJsonToDate()">Convert JSON to Date</button>
+<div id="jsonDateResult" class="result"></div>
+<h2>3. Convert JSON to CSV and CSV to JSON</h2>
+<textarea id="jsonCsvInput" placeholder='Enter JSON here...'></textarea>
+<button onclick="convertJsonToCsv()">Convert JSON to CSV</button>
+<button onclick="convertCsvToJson()">Convert CSV to JSON</button>
+<div id="csvResult" class="result"></div>
+<h2>4. Create Hash from String</h2>
+<input type="text" id="hashInput" placeholder='Enter string to hash...'>
+<button onclick="createHash()">Create Hash</button>
+<div id="hashResult" class="result"></div>
+ </div>
+<script>
+function convertJsonToObject() { 
+try {
+ const jsonText = document.getElementById('jsonInput').value;
+const jsonObject = JSON.parse(jsonText);
+document.getElementById('jsonObjectResult').innerText = JSON.stringify(jsonObject, null, 
+2); 
+} 
+catch (e) { 
+document.getElementById('jsonObjectResult').innerText = 'Invalid JSON'; 
+} 
+} 
+function convertJsonToDate() {
+try { 
+const jsonText = document.getElementById('jsonDateInput').value;
+const jsonObject = JSON.parse(jsonText);
+if (jsonObject.date) {
+const date = new Date(jsonObject.date); 
+document.getElementById('jsonDateResult').innerText = date.toString(); 
+}
+else {
+document.getElementById('jsonDateResult').innerText = 'No date field in JSON';
+}
+} catch (e) { 
+document.getElementById('jsonDateResult').innerText = 'Invalid JSON';
+} 
+}
+function convertJsonToCsv() {
+try { 
+const jsonText = document.getElementById('jsonCsvInput').value; 
+const jsonArray = JSON.parse(jsonText); 
+if (!Array.isArray(jsonArray)) {
+document.getElementById('csvResult').innerText = 'JSON must be an array of objects'; 
+return;
+} 
+const headers = Object.keys(jsonArray[0]); 
+const csvRows = [];
+csvRows.push(headers.join(','));
+for (const row of jsonArray) { 
+csvRows.push(headers.map(header => JSON.stringify(row[header] || '')).join(','));
+} 
+document.getElementById('csvResult').innerText = csvRows.join('\n'); 
+} 
+ catch (e) {
+document.getElementById('csvResult').innerText = 'Invalid JSON';
+} 
+}
+function convertCsvToJson() {
+const csvText = document.getElementById('csvResult').innerText;
+const [headerLine, ...rows] = csvText.split('\n');
+const headers = headerLine.split(',');
+const jsonArray = rows.map(row => { const values = row.split(',');
+return headers.reduce((acc, header, index) => { acc[header] = values[index] ? 
+JSON.parse(values[index]) : null; return acc; }, {}); }); 
+document.getElementById('csvResult').innerText = JSON.stringify(jsonArray, null, 2); 
+}
+async function createHash() {
+const crypto = window.crypto || window.msCrypto;
+// For IE 11 and older const text = document.getElementById('hashInput').value; 
+const encoder = new TextEncoder(); 
+const data = encoder.encode(text); 
+const hashBuffer = await crypto.subtle.digest('SHA-256', data); 
+const hashArray = Array.from(new Uint8Array(hashBuffer));
+const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); 
+document.getElementById('hashResult').innerText = hashHex;
+}
+</script>
+</body>
+</html>

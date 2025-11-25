@@ -1,0 +1,68 @@
+/* style.css */
+/* Style for <h2> elements */
+h2 {
+ color: #2c3e50; /* Dark blue color */
+ font-family: 'Arial', sans-serif; /* Font style */
+ text-align: center; /* Center align text */
+ margin-top: 20px; /* Margin above the element */
+}
+/* Style for <h3> elements */
+h3 {
+ color: #16a085; /* Teal color */
+ font-family: 'Verdana', sans-serif; /* Font style */
+ border-bottom: 2px solid #16a085; /* Bottom border */
+ padding-bottom: 5px; /* Padding below text */
+ margin-bottom: 20px; /* Margin below element */
+}
+/* Style for <hr> elements */
+hr {
+ border: 0; /* Remove default border */
+ height: 2px; /* Set height of the line */
+ background-color: #e74c3c; /* Red color */
+ margin: 30px 0; /* Margin above and below */
+}
+/* Style for <p> elements */
+p {
+ color: #34495e; /* Medium blue color */
+ font-family: 'Georgia', serif; /* Font style */
+ line-height: 1.6; /* Line height for readability */
+ margin: 15px 0; /* Margin above and below */
+}
+/* Style for <div> elements */
+div {
+ background-color: #ecf0f1; /* Light gray background */
+ border: 1px solid #bdc3c7; /* Border color */
+ padding: 20px; /* Padding inside the div */
+ border-radius: 5px; /* Rounded corners */
+ margin-bottom: 20px; /* Margin below the div */
+}
+/* Style for <span> elements */
+span {
+ color: #e67e22; /* Orange color */
+ font-weight: bold; /* Bold text */
+ background-color: #f9e79f; /* Light yellow background */
+ padding: 2px 5px; /* Padding around the text */
+}
+/* Style for <time> elements */
+time {
+ font-style: italic; /* Italic text */
+ color: #9b59b6; /* Purple color */
+}
+/* Style for <img> elements */
+img {
+ max-width: 100%; /* Responsive width */
+ height: auto; /* Maintain aspect ratio */
+ border-radius: 10px; /* Rounded corners */
+ display: block; /* Remove bottom space */
+ margin: 0 auto; /* Center align image */
+}
+/* Style for <a> elements */
+a {
+ color: #3498db; /* Blue color */
+ text-decoration: none; /* Remove underline */
+ font-weight: bold; /* Bold text */
+}
+a:hover {
+ color: #e74c3c; /* Change color on hover */
+ text-decoration: underline; /* Underline on hover */
+}

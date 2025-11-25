@@ -1,0 +1,66 @@
+body
+{ 
+ margin: 0; padding: 0; font-family: Arial, sans-serif;
+ }
+ /* Styling for the page header */
+h1
+{ 
+color: #2c3e50; text-align: center; margin-top: 20px;
+}
+/* Table styling */
+Table
+{ 
+width: 80%; margin: 0 auto; border-collapse: collapse;
+} 
+/* Table cell styling */
+Td
+{
+padding: 10px; vertical-align: middle; 
+}
+/* Label styling */
+Label
+{ 
+display: inline-block; width: 150px; font-size: 16px; color: #34495e; 
+}
+/* Input and select box styling */
+input[type="text"], 
+input[type="email"],
+input[type="password"], 
+input[type="date"], 
+select, 
+textarea { 
+ width: 100%; 
+ padding: 8px;
+ border: 1px solid #bdc3c7; 
+border-radius: 4px;
+box-sizing: border-box;
+} 
+/* Specific background colors for input elements */
+input[type="text"], 
+input[type="email"], 
+input[type="password"],
+input[type="date"] { 
+ background-color: #ecf0f1;
+/* Very light grey background */
+}
+select { background-color: #ffffff;
+/* White background */
+} 
+textarea { background-color: #f9f9f9;
+/* Slightly grey background */
+}
+/* Button styling */
+input[type="submit"], 
+input[type="reset"] { background-color: #3498db; 
+/* Blue background */ color: #ffffff; /* White text color */ border: none; 
+padding: 10px 20px; 
+border-radius: 4px;
+font-size: 16px; 
+cursor: pointer; 
+margin: 10px 5px; 
+}
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+background-color: #2980b9; 
+/* Darker blue on hover */
+}
